@@ -39,4 +39,8 @@ export class TicketComponent implements OnInit {
   archiveTicket() {
 		this.ticketArchive.emit(this.ticket)
 	}
+
+  selectStudent() {
+    this.ticketHasBeenSelected.emit(true);
+  }
 }

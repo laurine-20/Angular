@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket, major} from '../../../models/ticket';
+import { TicketComponent } from '../ticket/ticket.component';
+import { Student } from 'src/models/student';
+import { STUDENT_MOCKED } from 'src/mocks/student.mock';
 
 @Component({
   selector: 'app-ticket-form',
@@ -18,13 +21,15 @@ export class TicketFormComponent implements OnInit {
    */
   public ticketForm: FormGroup;
   public majors: major[] = [major.SI, major.GE, major.GB]
+  public students: Student[];
 
   constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
     // Form creation
     this.ticketForm = this.formBuilder.group({
       title: [''],
       description: [''],
-      major: ['']
+      major: [''],
+      student: ['']
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
@@ -37,8 +42,11 @@ export class TicketFormComponent implements OnInit {
   addTicket() {
     const ticketToCreate: Ticket = this.ticketForm.getRawValue() as Ticket;
     ticketToCreate.date = new Date();
-    ticketToCreate.student = 'Me';
+    // ticketToCreate.student = 'Me';
     this.ticketService.addTicket(ticketToCreate);
   }
+
+  getIdStudent() {
+	}
 
 }

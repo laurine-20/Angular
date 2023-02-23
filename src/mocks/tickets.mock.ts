@@ -1,4 +1,6 @@
 import { Ticket, major} from '../models/ticket';
+import { Student } from '../models/student';
+import { STUDENT_MOCKED } from './student.mock';
 
 const dateToday: Date = new Date();
 

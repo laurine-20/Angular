@@ -30,4 +30,8 @@ export class TicketListComponent implements OnInit {
 		this.ticketService.archiveTicket(ticket);
 	}
 
+  displayTicketArchived(ticket: Ticket) {
+		this.ticketService.archiveTicket(ticket);
+	}
+
 }
